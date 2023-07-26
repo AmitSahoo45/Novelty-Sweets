@@ -12,11 +12,13 @@ export default function Home({ items, images, ctaImage }) {
   const router = useRouter()
   const sweets = useSelector(selectAllSweets)
   const { setSweets } = useContext(SweetStoreContext)
-  
+
+  console.log('Inside index.js', sweets)
+
   useEffect(() => {
     dispatch(fetchSweets())
     setSweets(sweets)
-  }, []);
+  }, [dispatch, selectAllSweets]);
 
   return (
     <>

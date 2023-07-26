@@ -7,8 +7,9 @@ import { Loader } from '../components'
 import { SweetStoreContext } from '../constants/context/ContextStore'
 
 const products = () => {
-    const { sweets } = useContext(SweetStoreContext)
+    const { sweets, setSweets } = useContext(SweetStoreContext)
 
+    console.log(sweets)
     return (
         <div className='container mx-auto px-4'>
             <Head>
@@ -26,8 +27,8 @@ const products = () => {
                         <p className="lg:w-1/2 w-full leading-relaxed text-gray-500">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.</p>
                     </div>
                     <div className="flex flex-wrap m-4">
-                        {sweets.length === 0 ? <Loader /> :
-                            props.products.data.map(product => (
+                        {sweets?.length === 0 ? <Loader /> :
+                            sweets?.map(product => (
                                 <div key={product.attributes.Slug} className="lg:w-1/4 md:w-1/2 p-4 w-full">
                                     <a className="block relative h-48 rounded overflow-hidden">
                                         <Image
